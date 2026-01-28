@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+:root {
+  --white: #ffffff;
+  --silver: #e5e5e5;
+  --dark: #111;
+  --gray: #666;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--dark);
+}
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 100;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--silver);
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* NAV */
+.nav-desktop button {
+  background: none;
+  border: none;
+  margin-left: 24px;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-desktop button::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--dark);
+  transition: 0.3s;
+}
+
+.nav-desktop button:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: var(--dark);
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* MOBILE NAV */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  height: 100vh;
+  background: var(--white);
+  padding: 90px 30px;
+  transition: right 0.5s ease;
+}
+
+.nav-mobile.open {
+  right: 0;
+}
+
+.nav-mobile button {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+}
+
+/* CONTENT */
+.content {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+  animation: fadeSlide 0.6s ease;
+}
+
+/* FORM */
+form {
+  display: grid;
+  gap: 16px;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid var(--silver);
+  font-size: 1rem;
+}
+
+button.submit {
+  background: var(--dark);
+  color: var(--white);
+  padding: 14px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.submit:hover {
+  background: #333;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-left,
+.footer-right {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+.socials a {
+  color: var(--dark);
+  font-size: 1.5rem;
+  margin: 0 12px;
+  transition: transform 0.3s;
+}
+
+.socials a:hover {
+  transform: scale(1.2);
+}
+
+/* GALLERY */
+.gallery-section {
+  text-align: center;
+}
+
+.gallery-desc {
+  color: var(--gray);
+  margin-bottom: 40px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  animation: zoomIn 0.4s ease;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ANIMATION */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ANIMATIONS */
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .nav-desktop { display: none; }
+  .hamburger { display: flex; }
+}
