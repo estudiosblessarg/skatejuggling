@@ -140,7 +140,7 @@ function initGallery() {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_q3cu6f4",
+      "sk8juggling",
       "template_2iers47",
       e.target,
       "V_AAaVXHx7XF8cio4"
@@ -157,7 +157,7 @@ function initGallery() {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_q3cu6f4",
+      "sk8juggling",
       "template_99mpo3f",
       e.target,
       "V_AAaVXHx7XF8cio4"
