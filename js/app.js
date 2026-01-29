@@ -142,7 +142,8 @@ function initGallery() {
     emailjs.sendForm(
       "service_slo1od8",
       "template_2iers47",
-      e.target
+      e.target,
+      "V_AAaVXHx7XF8cio4"
     ).then(() => {
       alert("Turno enviado correctamente");
       e.target.reset();
@@ -158,7 +159,8 @@ function initGallery() {
     emailjs.sendForm(
       "service_slo1od8",
       "template_99mpo3f",
-      e.target
+      e.target,
+      "V_AAaVXHx7XF8cio4"
     ).then(() => {
       alert("Mensaje enviado correctamente");
       e.target.reset();
