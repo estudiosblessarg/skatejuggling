@@ -54,7 +54,7 @@ const sections = {
     <h1>Turnos</h1>
     <p>Reservá tu clase de skate freestyle.</p>
 
-    <form id="turnosForm">
+    <form id="turnosForm" method="POST">
       <label>Día</label>
       <input type="date" name="day" required>
 
@@ -97,7 +97,7 @@ const sections = {
     <h1>Contacto</h1>
     <p>Escribinos y te respondemos a la brevedad.</p>
 
-    <form id="contactForm">
+    <form id="contactForm" method="POST">
       <input type="text" name="name" placeholder="Nombre" required>
       <input type="email" name="email" placeholder="Email" required>
       <textarea name="message" rows="5" placeholder="Consulta" required></textarea>
